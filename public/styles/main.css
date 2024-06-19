@@ -11,10 +11,14 @@ body {
   height: 100%;
 }
 body {
-  background: #21252b;
+  background: #4f4f52;
+
   font-family: "Roboto", sans-serif;
 }
 
+.form1{
+  padding-top: 5%;
+}
 .ag-canvas {
   display: -webkit-flex;
   display: -ms-flexbox;

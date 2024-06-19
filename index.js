@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
+import { render } from "ejs";
 
 const app = express();
 const port = 3000;
@@ -44,6 +45,11 @@ async function getCurrentUser() {
 }
 
 app.get("/", async (req, res) => {
+  res.render("landing_page.ejs");
+});
+
+//render the index page with the list of visited countries
+app.get("/index", async (req, res) => {
   const countries = await checkVisited();
   const currentUser = await getCurrentUser();
   res.render("index.ejs", {
