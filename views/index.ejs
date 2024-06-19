@@ -8,6 +8,9 @@
   </head>
 
   <body>
+    <%- include("partials/header.ejs") %>
+    
+<div class="form1">
     <form class="tab-view tab-view-height-auto" action="/user" method="post">
       <% users.forEach(function(user){ %>
       <input
@@ -34,7 +37,7 @@
         Add New Country
       </button>
     </form>
-
+</div>
     <section class="ag-canvas">
       <svg
         class="ag-canvas_svg"
