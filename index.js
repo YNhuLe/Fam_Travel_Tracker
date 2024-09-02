@@ -49,7 +49,7 @@ app.get("/", async (req, res) => {
 });
 
 //render the index page with the list of visited countries
-app.get("/index", async (req, res) => {
+app.get("/views/index", async (req, res) => {
   const countries = await checkVisited();
   const currentUser = await getCurrentUser();
   res.render("index.ejs", {
@@ -59,9 +59,18 @@ app.get("/index", async (req, res) => {
     color: currentUser.color,
   });
 });
+//render the login page for the landing page
+app.get("/", async (req, res) => {
+  res.render("login_page.ejs");
+});
+
+//render the login page
+app.get("/views/login_page", async (req, res) => {
+  res.render("login_page.ejs");
+});
 
 //add country to the list of visited_countries from user's input
-app.post("/add", async (req, res) => {
+app.post("/views/index", async (req, res) => {
   const input = req.body["country"];
   const currentUser = await getCurrentUser();
   try {

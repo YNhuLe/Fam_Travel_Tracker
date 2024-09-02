@@ -10,13 +10,37 @@
             padding: 0;
             height: 100%;
         }
-        .top-section {
-            height: 100vh; /* Full viewport height */
-            background-image: url('https://iso.500px.com/wp-content/uploads/2015/08/travel_cover-1500x1000.jpeg');
+        *, ::before, ::after{
+            box-sizing: border-box;
+        }
+        .top-head{
+            position: relative;
+            color: red;
+        }
+        .top-section1{
+
+            height: 100vh;
+            display: block;
+            position: relative;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;  
             display: flex;
+            width:100%;
+            z-index: -1;
+        }
+        .poppins-medium, .poppins-title{
+            position:relative;
+            z-index: 1;
+            /* position: relative; */
+        }
+        .top-section {
+            /* height: 100vh; Full viewport height */
+            /* background-image: url('https://iso.500px.com/wp-content/uploads/2015/08/travel_cover-1500x1000.jpeg'); */
+            /* background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; */
+            /* display: flex; */
             flex-direction: column;
             justify-content: center;
             align-items: left;

@@ -1,0 +1,38 @@
+
+#foot-section{
+    background-color: #b4b2b2 !important;
+    color: white;
+}
+/* .container{
+  color:rgb(239, 245, 239);
+} */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0 0;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #0e0e0e;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    -webkit-transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+    -o-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+

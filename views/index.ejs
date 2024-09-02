@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fam Travel Tracker</title>
-    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="../public/styles/main.css" />
+    <link rel="stylesheet" href="../public/styles/map_page.css">
+    <link rel="stylesheet" href="./styles/main.css">
   </head>
 
   <body>
     <%- include("partials/header.ejs") %>
-    
+    <!-- id="myForm" onsubmit="openModal(event)"   -->
 <div class="form1">
-    <form class="tab-view tab-view-height-auto" action="/user" method="post">
+    <form class="tab-view tab-view-height-auto" id="myForm" onsubmit="openModal(event)" action="/user" method="post">
       <% users.forEach(function(user){ %>
       <input
         type="submit"
@@ -27,7 +29,13 @@
       <label for="tab">Add Family Member</label>
     </form>
 
-    <form action="/add" method="post">
+
+<div id="myModal" class="modal">
+<div class="modal-content" id="modalContent">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+</div>
+    <form action="/views/index" method="post">
       <input
         type="text"
         name="country"
@@ -760,6 +768,39 @@
       country_codes.forEach((code) => {
         document.getElementById(code).style.fill = "<%= color %>";
       });
+
+      async function openModal(event){
+        event.preventDefault();
+        const form = document.getElementById('myForm');
+        const formData = new FormData(form);
+        const queryString = new URLSearchParams(formData).toString();
+
+        //load content into the modal
+        try{
+          const response = await fetch('/new2?' + queryString);
+          if( response.ok){
+            const html = await response.text();
+            document.getElementById("modalContent").innerHTML = html;
+            document.getElementById("myModal").style.display= "block";
+          }else{
+            console.error('failed to load popup content');
+          }
+
+        }catch(error){
+          console.error("Error: ", error);
+        }
+      }
+
+      function closeModal(){
+        document.getElementById('myModal').style.display = 'none';
+      }
+
+      window.onclick = function(event){
+        const modal = document.getElementById('myModal');
+        if(event.target === modal){
+          modal.style.display = 'none';
+        }
+      }
     </script>
   </body>
 </html>
